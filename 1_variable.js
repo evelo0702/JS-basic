@@ -25,7 +25,9 @@ console.log(age);
 
 // Variable types
 // 1. Primitive, single item : number, string, boolean, null, undefined, symbol
+// 값 자체가 메모리에 저장됨 
 // 2. Object
+// 값의 메모리 주소가 저장됨 
 
 // symbol - create unique indentifiers for objects
 const symbol1 = Symbol("id");
