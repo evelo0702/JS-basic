@@ -23,6 +23,11 @@
   const array = [1, 2, 3, 4, 5];
   const array2 = array.slice(2);
   console.log(array2);
+  console.log(array);
+  console.log("=============");
+  const array3 = array.splice(2);
+  console.log(array3);
+  console.log(array);
 }
 
 class Student {
@@ -44,11 +49,15 @@ console.log(students);
 
 // Q5. find a student with the score 90
 {
+  // 조건에 맞는 모든학생을 출력하고싶을때
   for (score of students) {
     if (score.score == 90) {
       console.log(score);
     }
   }
+  // 조건에 맞는 제일 앞 학생일 출력하고싶을때
+  const result = students.find((student) => student.score === 90);
+  console.log(result);
 }
 
 // Q6. make an array of enrolled students
@@ -60,6 +69,11 @@ console.log(students);
     }
   }
   console.log(enrolledStudent);
+  console.log("==========");
+  // =======================================================
+
+  const student0 = students.filter((student) => student.enrolled === true);
+  console.log(student0);
 }
 
 // Q7. make an array containing only the students' scores
@@ -70,6 +84,12 @@ console.log(students);
     score.push(student.score);
   }
   console.log(score);
+
+  // =======================================================
+
+  console.log("==Q7==");
+  const score2 = students.map((student) => student.score);
+  console.log(score2);
 }
 
 // Q8. check if there is a student with the score lower than 50
@@ -79,6 +99,15 @@ console.log(students);
       console.log(student.name);
     }
   }
+
+  console.log("====Q8====");
+  // 배열중에 원하는 조건이 하나라도 있을경우를 찾는다면 some 사용 -> 하나라도있으면 true
+  const result = students.some((student) => student.score < 50);
+  console.log(result);
+
+  // 모든 배열 값이 원하는 조건에 충족하는지를 확인하려면 every 사용 -> 모든 값이 충족하면 true출력
+  const result2 = students.every((student) => student.score >= 50);
+  console.log(result2);
 }
 
 // Q9. compute students' average score
@@ -89,6 +118,9 @@ console.log(students);
   }
   avgscore = avgscore / students.length;
   console.log(avgscore);
+  // =======================================================
+  const result = students.reduce((first, second) => first + second.score, 0);
+  console.log(result / students.length);
 }
 
 // Q10. make a string containing all the scores
@@ -101,6 +133,13 @@ console.log(students);
   }
   const strscore = score.join();
   console.log(strscore);
+
+  // =======================================================
+  const score2 = students
+    .map((student) => student.score)
+    .filter((score) => score > 50)
+    .join();
+  console.log(score2);
 }
 
 // Bonus! do Q10 sorted in ascending order
